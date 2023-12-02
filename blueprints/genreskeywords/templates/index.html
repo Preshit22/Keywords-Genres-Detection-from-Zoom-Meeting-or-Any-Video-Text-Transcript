@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genre Prediction</title>
+</head>
+<body>
+    <h1>Genre Prediction</h1>
+    <form action="{{ url_for('ge_ke_blueprint.predicted_genre')}}" method="post" enctype="multipart/form-data">
+        <label for="keywords">Enter Keywords (comma-separated):</label>
+        <input type="text" name="keywords" required>
+        <br>
+        <button type="submit">Predict Genre</button>
+    </form>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Genre Prediction</title> -->
+</head>
+<body>
+    <h1>Genre Prediction</h1>
+    <form action="{{ url_for('ge_ke_blueprint.relevant_keywords.predict_genre')}}" method="post">
+        <!-- Remove the input field for keywords -->
+        <!-- <label for="keywords">Enter Keywords (comma-separated):</label>
+        <input type="text" name="keywords" required>
+        <br> -->
+
+        <!-- Directly submit the form without user input -->
+        <button type="submit">Predict Genre</button>
+    </form>
+</body>
+</html>

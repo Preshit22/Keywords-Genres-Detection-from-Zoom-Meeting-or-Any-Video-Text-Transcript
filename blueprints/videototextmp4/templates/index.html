@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Text Conversion</title>
+</head>
+<body>
+    <h1>Video to Text Conversion</h1>
+
+
+
+
+     Input for MP4 video file -->
+    <!-- <form action="{{ url_for('mp4_blueprint.predict_keywords')}}" method="post"></form>
+        <input type="file" name="videoFile" accept=".mp4">
+        <button type="button" onclick="uploadVideo()">Upload Video</button>
+    </form>
+
+    <button onclick="predictKeywords()">Get Recognized Text</button>
+    <p id="recognizedText"></p>
+
+    <script>
+        function uploadVideo() {
+            const formData = new FormData(document.getElementById("videoForm"));
+
+            fetch("/upload", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function predictKeywords() {
+            const chunkNumber = prompt("Enter the chunk number:");
+            if (chunkNumber !== null) {
+                fetch("/videototextmp4/predict_keywords", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        chunk_number: chunkNumber
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const recognizedText = data.recognized_text || "No recognized text available.";
+                    document.getElementById("recognizedText").innerText = recognizedText;
+                })
+                .catch(error => console.error("Error:", error));
+            }
+        }
+    </script>
+</body>
+</html> --> 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Text Conversion</title>
+</head>
+<body>
+    <h1>Video to Text Conversion</h1>  
+
+    
+    <form id="videoForm" action="{{url_for('mp4_blueprint.predict_keywords')}}" method="post" enctype="multipart/form-data">
+        <input type="file" name="videoFile" accept=".mp4">
+        <button type="button" onclick="uploadVideo()">Upload Video</button>
+    </form>
+
+    <button onclick="getRecognizedText()">Get Recognized Text</button>
+    <p id="recognizedText"></p>
+
+    <script>
+        function uploadVideo() {
+            const formData = new FormData(document.getElementById("videoForm"));
+
+            fetch("/upload", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function getRecognizedText() {
+            fetch("/videototextmp4/predict_keywords", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },  
+                body: JSON.stringify({
+                    chunk_number: "all"  // Sending "all" to indicate you want the entire text
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const recognizedText = data.recognized_text || "No recognized text available.";
+                document.getElementById("recognizedText").innerText = recognizedText;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
+

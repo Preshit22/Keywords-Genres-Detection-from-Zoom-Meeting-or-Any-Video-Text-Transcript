@@ -1,0 +1,41 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Prediction Result</title>
+</head>
+<body>
+    <h1>Keyword Prediction Result</h1>
+    <p><strong>Recognized Keywords:</strong></p>
+    <ul id="recognizedKeywords"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch recognized keywords from the Flask route
+            fetch("/keywordstfidf/predict_keywords_tfidf", {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+                const recognizedKeywords = data.recognized_keywords || [];
+                displayKeywords(recognizedKeywords);
+            })
+            .catch(error => console.error("Error:", error));
+        });
+
+        function displayKeywords(keywords) {
+            const recognizedKeywordsList = document.getElementById("recognizedKeywords");
+            recognizedKeywordsList.innerHTML = "";  // Clear previous content
+
+            // Display each recognized keyword in a list item
+            keywords.forEach(keyword => {
+                const listItem = document.createElement("li");
+                listItem.textContent = keyword;
+                recognizedKeywordsList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>

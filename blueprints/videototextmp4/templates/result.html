@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Text Result</title>
+</head>
+
+<body>
+    <h1>Video to Text Result</h1>
+
+    <div id="result-container">
+        <!-- The recognized text will be displayed here dynamically -->
+    </div>
+
+    <script>
+        // Fetch the recognized text from the server
+        async function fetchResult() {
+            try {
+                const response = await fetch('/videototextmp4/predict_keywords', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chunk_number: 1,  // Set the desired chunk number
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Update the result container with the recognized text
+                    document.getElementById('result-container').innerText = data.recognized_text;
+                } else {
+                    console.error('Error fetching result:', data.error);
+                }
+            } catch (error) {
+                console.error('Error fetching result:', error);
+            }
+        }
+
+        // Fetch the result when the page loads
+        fetchResult();
+    </script>
+</body>
+
+</html>

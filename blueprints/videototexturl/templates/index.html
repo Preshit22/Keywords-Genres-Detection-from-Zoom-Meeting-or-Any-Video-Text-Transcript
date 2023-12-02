@@ -1,0 +1,54 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Recognition</title>
+</head>
+<body>
+    <h1>Keyword Recognition</h1>
+    <form action="{{ url_for('url_blueprint.predict_keywords')}}" method="post"></form>
+    <label for="videoUrl">Enter Video URL:</label>
+    <input type="text" id="videoUrl" placeholder="Video URL">
+    <button onclick="predictKeywords()">Predict Keywords</button>
+    <p id="recognizedText"></p>
+
+    <script>
+        function predictKeywords() {
+            const videoUrl = document.getElementById("videoUrl").value.trim();
+            if (!videoUrl) {
+                alert("Please enter a valid video URL.");
+                return;
+            }
+
+            fetch("/videototexturl/predict_keywords", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    video_url: videoUrl
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const recognizedText = data.recognized_text || "No recognized text available.";
+                document.getElementById("recognizedText").innerText = recognizedText;
+
+                // Save the recognized text to recognized.txt
+                fetch("/keywordsdecsr/save_recognized_text", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        recognized_text: recognizedText
+                    })
+                });
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>

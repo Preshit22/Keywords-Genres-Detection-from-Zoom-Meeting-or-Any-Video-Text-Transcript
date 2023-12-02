@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Genre Prediction Result Using Text </title>
+</head>
+<body>
+    <h1> Genre Prediction Result Using Text </h1>
+    {% if predicted_genre %}
+        <p>Predicted Genre: {{ predicted_genre }}</p>
+    {% else %}
+        <p>Error predicting genre.</p>
+    {% endif %}
+</body>
+</html>

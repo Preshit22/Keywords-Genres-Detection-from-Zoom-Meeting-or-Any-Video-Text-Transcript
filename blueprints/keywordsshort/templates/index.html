@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Prediction</title>
+</head>
+<body>
+    <h1>Keyword Prediction</h1>
+    <form action="{{ url_for('keyshort_blueprint.predict_keywords')}}" method="post">
+        <label for="textInput">Enter Text:</label>
+        <textarea id="textInput" name="text" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="button" onclick="predictKeywords()">Predict Keywords</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function predictKeywords() {
+            var textInput = document.getElementById('textInput').value;
+            fetch('/keywordsshort/predict_keywords', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: textInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = "<h3>Predicted Keywords:</h3><p>" + data.predicted_keywords.join(', ') + "</p>";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = "<p>Error predicting keywords.</p>";
+            });
+        }
+    </script>
+</body>
+</html>

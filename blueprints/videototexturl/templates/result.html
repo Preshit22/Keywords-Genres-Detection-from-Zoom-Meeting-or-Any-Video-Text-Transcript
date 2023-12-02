@@ -1,0 +1,18 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Recognition Result</title>
+</head>
+<body>
+    <h1>Keyword Recognition Result</h1>
+    <p id="resultText"></p>
+
+    <script>
+        const resultText = localStorage.getItem("resultText");
+        document.getElementById("resultText").innerText = resultText || "No result available.";
+    </script>
+</body>
+</html>
