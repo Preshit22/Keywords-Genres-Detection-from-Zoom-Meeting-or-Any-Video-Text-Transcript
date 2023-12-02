@@ -1,0 +1,48 @@
+/* Center the layout */
+
+/* Center the navbar */
+.navbar {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+/* Center the heading and first markdown */
+h1, h3{
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+}
+
+/* Center the input field */
+input {
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* Navbar styling */
+.navbar {
+  background-color: #222;
+  color: white;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link {
+  padding: 5px 10px;
+}
+
+.nav-link:hover {
+  background-color: #4285f4;
+  color: white;
+}
+
+/* Input field styling */
+input {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
