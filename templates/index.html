@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!---- title -->
+    <title>Lets Try to skip the Video</title>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!--- customer css file ----->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!---- boxicon cdn link ----->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!---- header section start ----->
+    <header class="header">
+        <div class="top-header">
+            <a href="#">
+                <img class="logo" src="./images/logo.png" alt="">
+            </a>
+
+            <div class="links">
+                <div class="navBar">
+                    <!-- <a href="./index.html">Home</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a> 
+                    <i class='bx bx-x' id="closeBtn"></i> -->
+
+
+
+                    <ul class="navbar-nav mr-auto">
+						<!-- <li class="nav-item active"> -->
+							<a class="nav-link" href="{{ url_for('ge_ke_blueprint.genreskeywords') }}" >genre from keywords<span class="sr-only">(current)</span></a>
+						<!-- </li> -->
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('genretext_blueprint.genretext') }}" >Genre from text<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('keydesc_blueprint.keywordsdecsr') }}">Described Keywords<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+								<a class="nav-link" href="{{ url_for('keyshort_blueprint.keywordsshort') }}">Short Keywords<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('keytfidf_blueprint.keywordstfidf') }}">Domain Specific Genre<span class="sr-only">(current)</span></a>
+						</li>
+                        <li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('url_blueprint.videototexturl') }}">URL Video to text<span class="sr-only">(current)</span></a>
+						</li>
+                        <li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('mp4_blueprint.videototextmp4') }}">URL Video to text<span class="sr-only">(current)</span></a>
+						</li>
+					</ul>
+                </div>
+                
+                <i class='bx bx-menu-alt-right' id="menuBar"></i>
+            </div>
+        </div>
+    </header>
+
+    <!---- home section start -->
+    <section class="home">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide">
+                    <h1><span>To Get Started</span><br> Please Upload Your Source</h1>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sed nam fugiat, ab accusamus dolores fuga soluta culpa est. Quasi, odit ratione magnam recusandae aperiam soluta quibusdam aspernatur illo corporis.</p> -->
+
+                    <!-- <form method="POST" action="/upload" enctype="multipart/form-data">
+                        <input type="file" name="file" accept=".mp4,.wav" id="file">
+                        <label class="upload-button" for="file">Choose File</label>
+                        <input type="submit" value="Upload">
+
+                    </form> -->
+                    <button class="shopBtn">Upload</button>
+              </div>
+              <div class="swiper-slide slide">
+                    <h1><span>Its Super </span><br>Simple</h1>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sed nam fugiat, ab accusamus dolores fuga soluta culpa est. Quasi, odit ratione magnam recusandae aperiam soluta quibusdam aspernatur illo corporis.</p> -->
+                    
+                    <button class="shopBtn">Done</button>
+              </div>
+            </div>
+            <div class="swiper-button-next swiperBtn"></div>
+            <div class="swiper-button-prev swiperBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!---- shop section start -->
+    <section class="shop">
+        <div class="main-header">
+            <h1>Know About Us</h1>
+        </div>
+        <div class="shop-row">
+            <div class="col-1">
+                <img src="./images/s1.png" alt="">
+                <h4>Formats</h4>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
+            </div> 
+            <div class="col-1">
+                <img src="./images/s3.png" alt="">
+                <h4>Links</h4>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
+            </div>
+            <div class="col-1">
+                <img src="./images/s22.png" alt="">
+                <h4>Help</h4>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
+            </div>
+        </div>
+    </section>
+
+    <!---- aboutus section start -->
+   <section class="About">
+           <div class="image">
+                <img src="./images/aboutus.jpg" alt="">
+           </div>
+           <div class="container">
+                <h2>About us</h2>
+                <p>"Keywords Identification from Zoom Meeting or Any Video" is a sophisticated system designed to extract and analyze key terms, phrases, and topics from video content. It utilizes advanced algorithms to process a wide range of video formats, including Zoom meetings and other sources. The system offers multilingual support, ensuring the accurate identification of keywords in videos of various languages.
+                </p>
+
+                
+           </div>
+        </section>
+    <!---- customer section start ---->
+    <section class="Owner">
+        <div class="main-header">
+            <h1>Team</h1>
+        </div>
+
+        <div class="swiper CustomSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/pphoto.png" alt="">
+                    <h4>Om Patange</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, vitae. Adipisci, sapiente a! Iste, laudantium! Cum provident excepturi odit exercitationem nesciunt harum cupiditate labore, quisquam libero non, dolores distinctio nulla.</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/pphoto.png" alt="">
+                    <h4>Preshit Desai</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, vitae. Adipisci, sapiente a! Iste, laudantium! Cum provident excepturi odit exercitationem nesciunt harum cupiditate labore, quisquam libero non, dolores distinctio nulla.</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/pphoto.png" alt="">
+                    <h4>Nikita Kshirsagar</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, vitae. Adipisci, sapiente a! Iste, laudantium! Cum provident excepturi odit exercitationem nesciunt harum cupiditate labore, quisquam libero non, dolores distinctio nulla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---- FeedBack section start -->
+    <div class="FeedBack">
+       
+        <div class="container">
+            <!-- <img src="./images/vrboy.jpg" alt=""> -->
+            <h2>Please Share your FeedBack</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore, sapiente.</p>
+            <input type="text" placeholder="Please Share Your FeedBack">
+            <button>Send</button>
+        </div>
+    </div>
+
+    <!--- footer section start -->
+    <div class="footer">
+        <div class="footer-row">
+            <div class="col-3">
+                <img src="./images/logo.png" alt="">
+                
+                
+                <p>EMAIL: <span>trytoskipthevideo@gmail.com</span></p>
+            </div>
+            <div class="col-3">
+                <h4>MENU</h4>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Tutorial</a>
+            </div>
+
+            <div class="col-3">
+                <h4>ACCOUNT</h4>
+                <a href="#">Account</a>
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+        
+            </div>
+            <div class="col-3">
+                <h4 class="news">Submit Email</h4>
+                <P>Please Enter Your Email To Get Updates</P>
+                <div class="inputBox">
+                    <input type="text" placeholder="Enter Your Email">
+                    <button>Done:></button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+ 
+       
+
+    
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!---- customer js file -->
+    <script src="./js/script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
